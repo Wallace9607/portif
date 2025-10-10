@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfólio - Wallace Alves</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@400;700&family=Poppins:wght@400;600&display=swap');
+
+* {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+:root {
+  /* Cores principais */
+  --neon-azul: #00C8FF;        /* brilho principal */
+  --neon-claro: #33E0FF;       /* brilho suave interno */
+  --azul-metalico: #0077B6;    /* detalhes metálicos */
+  --azul-profundo: #003459;    /* sombra e contraste */
+  --fundo-escuro: #0A0F1F;     /* fundo geral */
+}
+
+/* Base */
+body {
+  background-color: var(--fundo-escuro);
+  color: var(--neon-claro);
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ==== VÍDEO DE FUNDO ==== */
+#bg-video {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  filter: brightness(0.25) saturate(1.4);
+}
+
+/* Camada de brilho sobre o vídeo */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: radial-gradient(circle at 20% 20%, rgba(0,200,255,0.08), transparent 60%),
+              radial-gradient(circle at 80% 80%, rgba(0,119,182,0.1), transparent 60%);
+  animation: moveGlow 12s infinite alternate ease-in-out;
+  z-index: -1;
+}
+@keyframes moveGlow {
+  0% { background-position: 0% 0%, 100% 100%; }
+  100% { background-position: 100% 100%, 0% 0%; }
+}
+
+/* ==== NAVBAR ==== */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(10, 15, 31, 0.85);
+  padding: 15px 30px;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--neon-azul);
+  box-shadow: 0 0 15px var(--azul-metalico);
+  z-index: 1000;
+}
+.logo {
+  display: flex; align-items: center;
+  color: var(--neon-azul);
+  font-family: "Merienda", cursive;
+  font-size: 22px;
+  text-shadow: 0 0 15px var(--neon-azul);
+}
+.logo img {
+  width: 60px;
+  border-radius: 50%;
+  margin-right: 10px;
+  border: 2px solid var(--neon-azul);
+}
+
+.nav-links { list-style: none; display: flex; }
+.nav-links li { margin: 0 15px; }
+.nav-links a {
+  color: #fff; text-decoration: none;
+  position: relative;
+  transition: 0.3s;
+}
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -3px; left: 0;
+  width: 0; height: 2px;
+  background: var(--neon-azul);
+  transition: 0.3s;
+}
+.nav-links a:hover {
+  color: var(--neon-azul);
+}
+.nav-links a:hover::after {
+  width: 100%;
+}
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  color: var(--neon-azul);
+  font-size: 1.5rem;
+}
+
+/* ==== HERO ==== */
+.hero {
+  min-height: 75vh;
+  display: flex; justify-content: center; align-items: center;
+  text-align: center; 
+  padding: 20px 10px 60px;
+}
+.hero .container {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+  gap: 40px;
+}
+.hero-pic {
+  width: 250px; height: 250px; border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid var(--neon-azul);
+  box-shadow: 0 0 30px var(--neon-claro);
+  transition: 0.5s;
+}
+.hero-pic img {
+  width: 100%;
+}
+.hero-pic:hover {
+  transform: rotate(5deg) scale(1.05);
+  box-shadow: 0 0 40px var(--neon-azul);
+}
+.hero-text h1 {
+  font-size: 2.8rem;
+  color: var(--neon-azul);
+  text-shadow: 0 0 15px var(--neon-azul);
+}
+.hero-text h4 {
+  margin: 10px 0;
+  color: var(--neon-claro);
+}
+.hero-text p {
+  margin: 15px 0;
+  max-width: 500px;
+  line-height: 1.6;
+  color: #ccc;
+}
+.social a {
+  margin: 0 10px;
+  font-size: 1.5rem;
+  color: #fff;
+  transition: 0.3s;
+}
+.social a:hover {
+  color: var(--neon-azul);
+  text-shadow: 0 0 15px var(--neon-azul);
+}
+
+/* ==== SEÇÕES ==== */
+.section {
+  padding: 80px 20px;
+  text-align: center;
+  background: rgba(0,0,0,0.55);
+  margin: 20px 0;
+  border-top: 1px solid var(--azul-metalico);
+  border-bottom: 1px solid var(--azul-metalico);
+  box-shadow: 0 0 25px var(--azul-profundo) inset;
+}
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: var(--neon-azul);
+  text-shadow: 0 0 10px var(--neon-claro);
+}
+
+/* ==== SKILLS ==== */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 20px;
+}
+.skill {
+  background: #0d1426;
+  padding: 20px;
+  border-radius: 10px;
+  transition: 0.3s;
+  border: 1px solid var(--azul-metalico);
+  box-shadow: 0 0 10px var(--neon-azul);
+}
+.skill i {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: var(--neon-azul);
+}
+.skill:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px var(--neon-claro);
+}
+
+/* ==== PROJETOS ==== */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+.project-card {
+  background: #0d1426;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  border: 1px solid var(--azul-metalico);
+  box-shadow: 0 0 20px var(--azul-profundo);
+  transition: 0.3s;
+}
+.project-card img {
+  width: 100%;
+  border-radius: 10px;
+  filter: grayscale(30%);
+  transition: 0.4s;
+}
+.project-card:hover img {
+  filter: none;
+  transform: scale(1.05);
+}
+.project-card a {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--neon-azul);
+  text-shadow: 0 0 10px var(--neon-azul);
+  font-weight: bold;
+}
+
+/*=== CONTATO ===*/
+#contact {
+  text-align: center;
+  padding: 100px 20px;
+  background: radial-gradient(circle at center, #00111a9c 0%, #000a12ce 100%);
+  color: #fff;
+}
+
+#contact h2 {
+  font-size: 2rem;
+  color: var(--neon-azul);
+  text-shadow: 0 0 10px var(--azul-metalico);
+  margin-bottom: 20px;
+}
+
+#contact p {
+  font-size: 1.1rem;
+  color: #bbb;
+  margin-bottom: 40px;
+}
+
+.whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #00e676;
+  color: #000;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 0 20px #00e676;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+}
+
+.whatsapp-btn i {
+  font-size: 1.5rem;
+}
+
+.whatsapp-btn:hover {
+  transform: scale(1.1);
+  background: #00ff80;
+  box-shadow: 0 0 30px #00ff80;
+}
+
+
+
+
+/* ==== FOOTER ==== */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: rgba(0,0,0,0.9);
+  border-top: 1px solid var(--azul-metalico);
+  color: #aaa;
+}
+
+/* ==== ANIMAÇÃO DE APARECIMENTO ==== */
+.hidden {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+ /*Carrossel*/
+
+#loops {
+  text-align: center;
+  margin-top: 80px;
+  padding: 0;
+  overflow: hidden;
+  border: none;
+  background: none;
+  box-shadow: none;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 40px;
+  animation: scroll 35s linear infinite;
+}
+
+.loop {
+  flex: 0 0 auto;
+  padding: 30px 0;
+  text-align: center;
+  color: #fff;
+  min-width: 100px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.loop:hover {
+  transform: translateY(-10px) scale(1.1);
+}
+
+.loop i {
+  font-size: 1.5rem;
+  color: #00e5ff;
+}
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+
+/* ==== RESPONSIVO ==== */
+@media(max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: rgba(0,0,0,0.95);
+    position: absolute;
+    top: 60px; right: 0;
+    width: 200px;
+    border-left: 1px solid var(--neon-azul);
+  }
+  .nav-links.show { display: flex; }
+  .hero .container { flex-direction: column; }
+}
+
+  </style>
+</head>
+<body>
+  <video autoplay muted loop playsinline id="bg-video">
+  <source src="img/11.18.43.mp4" type="video/mp4">
+</video>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="img/4.06.15.jpeg" alt="">
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#home">Início</a></li>
+        <li><a href="#about">Sobre</a></li>
+        <!--<li><a href="#skills">Habilidades</a></li>-->
+        <li><a href="#projects">Projetos</a></li>
+        <li><a href="#contact">Contato</a></li>
+      </ul>
+      <div class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+  </header>
+<div id="loops" class="section">
+  <div class="carousel">
+    <div class="carousel-track">
+      <!-- Linguagens -->
+      <div class="loop"><i class="fab fa-html5" title="HTML5"></i></div>
+      <div class="loop"><i class="fab fa-css3-alt" title="CSS3"></i></div>
+      <div class="loop"><i class="fab fa-js" title="JavaScript"></i></div>
+      <div class="loop"><i class="fab fa-python" title="Python"></i></div>
+      <div class="loop"><i class="fab fa-php" title="PHP"></i></div>
+
+      <!-- Frameworks / Bibliotecas -->
+      <div class="loop"><i class="fab fa-react" title="React"></i></div>
+      <div class="loop"><i class="fab fa-vuejs" title="Vue.js"></i></div>
+      <div class="loop"><i class="fab fa-angular" title="Angular"></i></div>
+      <div class="loop"><i class="fab fa-node-js" title="Node.js"></i></div>
+      <div class="loop"><i class="fab fa-bootstrap" title="Bootstrap"></i></div>
+
+      <!-- Ferramentas e Versionamento -->
+      <div class="loop"><i class="fab fa-git-alt" title="Git"></i></div>
+      <div class="loop"><i class="fab fa-github" title="GitHub"></i></div>
+      <div class="loop"><i class="fab fa-npm" title="NPM"></i></div>
+      <div class="loop"><i class="fab fa-docker" title="Docker"></i></div>
+
+      <!-- Design e Prototipagem -->
+      <div class="loop"><i class="fab fa-figma" title="Figma"></i></div>
+      <div class="loop"><i class="fab fa-adobe" title="Adobe XD / Photoshop"></i></div>
+
+      <!-- Bancos de Dados -->
+      <div class="loop"><i class="fas fa-database" title="SQL / MySQL"></i></div>
+      <div class="loop"><i class="fas fa-leaf" title="MongoDB"></i></div>
+
+      <!-- Outros -->
+      <div class="loop"><i class="fab fa-linux" title="Linux"></i></div>
+      <div class="loop"><i class="fab fa-aws" title="AWS"></i></div>
+      <div class="loop"><i class="fab fa-wordpress" title="WordPress"></i></div>
+
+      <!-- Duplicados para o loop infinito -->
+      <div class="loop"><i class="fab fa-html5"></i></div>
+      <div class="loop"><i class="fab fa-css3-alt"></i></div>
+      <div class="loop"><i class="fab fa-js"></i></div>
+      <div class="loop"><i class="fab fa-react"></i></div>
+      <div class="loop"><i class="fab fa-node-js"></i></div>
+      <div class="loop"><i class="fab fa-git-alt"></i></div>
+      <div class="loop"><i class="fab fa-figma"></i></div>
+      <div class="loop"><i class="fab fa-docker"></i></div>
+      <div class="loop"><i class="fab fa-vuejs"></i></div>
+      <div class="loop"><i class="fab fa-python"></i></div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Home -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-pic">
+        <img src="img/4.06.15.jpeg" alt="Foto de perfil de Wallace Alves">
+      </div>
+      <div class="hero-text">
+        <h5>Olá, sou</h5>
+        <h1>Wallace Alves</h1>
+        <h4><span id="typed"></span></h4>
+        <p>Tenho <span id="age"></span> anos e sou apaixonado por tecnologia. Busco transformar ideias em experiências interativas com HTML, CSS e JavaScript.</p>
+        <div class="social">
+          <a href="curriculo.html" target="_blank"><i class="fas fa-file-alt"></i></a>
+          <a href="https://wa.me/64993286584" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://github.com/Wallace9607" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sobre -->
+  <section id="about" class="section">
+    <h2>Sobre mim</h2>
+    <p>Sou um entusiasta da tecnologia e desenvolvedor front-end em formação. Gosto de unir design e usabilidade, criando interfaces modernas e funcionais.</p>
+<div class="dna-tech">
+  <div class="dna-item">
+    <h4>🧠 Curioso</h4>
+    <p>Gosto de entender como tudo funciona por trás das telas.</p>
+  </div>
+  <div class="dna-item">
+    <h4>🎯 Focado</h4>
+    <p>Busco sempre aprender algo novo e aplicar com propósito.</p>
+  </div>
+  <div class="dna-item">
+    <h4>💡 Criativo</h4>
+    <p>Adoro transformar ideias em interfaces interativas.</p>
+  </div>
+</div>
+
+
+
+
+  </section>
+
+  <!-- Habilidades
+  <section id="skills" class="section">
+    <h2>Habilidades</h2>
+    <div class="skills-grid">
+      <div class="skill"><i class="fab fa-html5"></i><p>HTML</p></div>
+      <div class="skill"><i class="fab fa-css3-alt"></i><p>CSS</p></div>
+      <div class="skill"><i class="fab fa-js"></i><p>JavaScript</p></div>
+      <div class="skill"><i class="fab fa-react"></i><p>React</p></div>
+      <div class="skill"><i class="fab fa-git-alt"></i><p>Git</p></div>
+    </div>
+  </section> -->
+
+  <!-- Projetos -->
+  <section id="projects" class="section">
+    <h2>Projetos</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <img src="img/projeto1.jpg" alt="Projeto 1">
+        <h3>Projeto 1</h3>
+        <p>Descrição breve do projeto.</p>
+        <a href="#" target="_blank">Ver no GitHub</a>
+      </div>
+      <div class="project-card">
+        <img src="img/projeto2.jpg" alt="Projeto 2">
+        <h3>Projeto 2</h3>
+        <p>Descrição breve do projeto.</p>
+        <a href="#" target="_blank">Ver no GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato -->
+<section id="contact" class="section">
+  <h2>Entre em Contato</h2>
+  <p>Quer conversar sobre um projeto, ideia ou colaboração? Fale comigo no WhatsApp!</p>
+
+  <a href="https://wa.me/5564993286584?text=Olá!%20Vim%20do%20seu%20portfólio%20e%20gostaria%20de%20conversar." 
+     target="_blank" 
+     class="whatsapp-btn">
+    <i class="fab fa-whatsapp"></i> Falar no WhatsApp
+  </a>
+</section>
+
+  <!-- Rodapé -->
+  <footer>
+    <p>© 2025 Wallace Alves - Todos os direitos reservados</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
