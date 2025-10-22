@@ -19,15 +19,14 @@
   --azul-profundo: #003459;    /* sombra e contraste */
   --fundo-escuro: #0A0F1F;     /* fundo geral */
 }
-
 /* Base */
 body {
   background-color: var(--fundo-escuro);
   color: var(--neon-claro);
   font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
+   opacity: 0; 
 }
-
 /* ==== VÍDEO DE FUNDO ==== */
 #bg-video {
   position: fixed;
@@ -37,7 +36,6 @@ body {
   z-index: -2;
   filter: brightness(0.25) saturate(1.4);
 }
-
 /* Camada de brilho sobre o vídeo */
 body::before {
   content: "";
@@ -53,7 +51,6 @@ body::before {
   0% { background-position: 0% 0%, 100% 100%; }
   100% { background-position: 100% 100%, 0% 0%; }
 }
-
 /* ==== NAVBAR ==== */
 .navbar {
   position: fixed;
@@ -63,7 +60,6 @@ body::before {
   padding: 15px 30px;
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--neon-azul);
-  box-shadow: 0 0 15px var(--azul-metalico);
   z-index: 1000;
 }
 .logo {
@@ -71,17 +67,15 @@ body::before {
   color: var(--neon-azul);
   font-family: "Merienda", cursive;
   font-size: 22px;
-  text-shadow: 0 0 15px var(--neon-azul);
 }
 .logo img {
   width: 60px;
   border-radius: 50%;
-  margin-right: 10px;
   border: 2px solid var(--neon-azul);
+  filter: grayscale(0%) brightness(1.2);
 }
-
 .nav-links { list-style: none; display: flex; }
-.nav-links li { margin: 0 15px; }
+.nav-links li { margin: 0 50px; }
 .nav-links a {
   color: #fff; text-decoration: none;
   position: relative;
@@ -107,7 +101,6 @@ body::before {
   color: var(--neon-azul);
   font-size: 1.5rem;
 }
-
 /* ==== HERO ==== */
 .hero {
   min-height: 75vh;
@@ -120,10 +113,9 @@ body::before {
   gap: 40px;
 }
 .hero-pic {
-  width: 250px; height: 250px; border-radius: 50%;
+  width: 350px; height: 350px; border-radius: 50%;
   overflow: hidden;
   border: 4px solid var(--neon-azul);
-  box-shadow: 0 0 30px var(--neon-claro);
   transition: 0.5s;
 }
 .hero-pic img {
@@ -131,12 +123,10 @@ body::before {
 }
 .hero-pic:hover {
   transform: rotate(5deg) scale(1.05);
-  box-shadow: 0 0 40px var(--neon-azul);
 }
 .hero-text h1 {
   font-size: 2.8rem;
   color: var(--neon-azul);
-  text-shadow: 0 0 15px var(--neon-azul);
 }
 .hero-text h4 {
   margin: 10px 0;
@@ -156,104 +146,160 @@ body::before {
 }
 .social a:hover {
   color: var(--neon-azul);
-  text-shadow: 0 0 15px var(--neon-azul);
 }
-
 /* ==== SEÇÕES ==== */
 .section {
   padding: 80px 20px;
   text-align: center;
-  background: rgba(0,0,0,0.55);
   margin: 20px 0;
-  border-top: 1px solid var(--azul-metalico);
-  border-bottom: 1px solid var(--azul-metalico);
-  box-shadow: 0 0 25px var(--azul-profundo) inset;
 }
 .section h2 {
   font-size: 2rem;
   margin-bottom: 20px;
   color: var(--neon-azul);
-  text-shadow: 0 0 10px var(--neon-claro);
 }
-
-/* ==== SKILLS ==== */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 20px;
-}
-.skill {
-  background: #0d1426;
-  padding: 20px;
-  border-radius: 10px;
-  transition: 0.3s;
-  border: 1px solid var(--azul-metalico);
-  box-shadow: 0 0 10px var(--neon-azul);
-}
-.skill i {
-  font-size: 2rem;
-  margin-bottom: 10px;
-  color: var(--neon-azul);
-}
-.skill:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 25px var(--neon-claro);
-}
-
 /* ==== PROJETOS ==== */
+.projects-section {
+  position: relative;
+  border-radius: 15px;
+  max-width: 1100px;
+  margin: 80px auto;
+  padding: 60px 25px;
+  overflow: hidden;
+}
+.projects-section h2 {
+  color: var(--neon-azul);
+  font-size: 2.3rem;
+  margin-bottom: 20px;
+}
+.projects-intro {
+  color: #cceaff;
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto 50px;
+  line-height: 1.7;
+}
+/* Grid dos projetos */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  justify-items: center;
 }
+/* Card do projeto */
 .project-card {
-  background: #0d1426;
-  border-radius: 10px;
-  padding: 15px;
+  background: rgba(13, 20, 38, 0.85);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.4s, 0.4s;
+  width: 100%;
+  max-width: 330px;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(4px);
+  position: relative;
+}
+.project-card:hover {
+  transform: translateY(-10px) scale(1.03);
+}
+/* Imagem */
+.project-img {
+  overflow: hidden;
+  position: relative;
+  height: 250px;
+}
+.project-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(30%) brightness(0.9);
+  transition: 0.4s ease;
+}
+.project-card:hover .project-img img {
+  filter: grayscale(0%) brightness(1.1);
+  transform: scale(1.1);
+}
+/* Conteúdo */
+.project-info {
+  padding: 20px;
   text-align: center;
-  border: 1px solid var(--azul-metalico);
-  box-shadow: 0 0 20px var(--azul-profundo);
+}
+.project-info h3 {
+  color: var(--neon-azul);
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+.project-info p {
+  color: #aad8ff;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+/* Botão */
+.btn-project {
+  display: inline-block;
+  padding: 10px 25px;
+  border-radius: 50px;
+  background: var(--neon-azul);
+  color: #000;
+  text-decoration: none;
+  font-weight: 600;
   transition: 0.3s;
 }
-.project-card img {
-  width: 100%;
-  border-radius: 10px;
-  filter: grayscale(30%);
-  transition: 0.4s;
+.btn-project:hover {
+  background: var(--neon-claro);
+  transform: scale(1.1);
 }
-.project-card:hover img {
-  filter: none;
-  transform: scale(1.05);
+/* Animação de entrada */
+.projects-section.hidden {
+  opacity: 0;
+  transform: translateY(40px) scale(0.97);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
-.project-card a {
-  display: inline-block;
-  margin-top: 10px;
+.projects-section.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+/* ==== SOBRE MIM ==== */
+.about-section {
+  position: relative;
+  max-width: 1000px;
+  margin: 80px auto;
+  padding: 60px 25px;
+  overflow: hidden;
+}
+.about-section h2 {
+  position: relative;
+  font-size: 2.3rem;
   color: var(--neon-azul);
-  text-shadow: 0 0 10px var(--neon-azul);
-  font-weight: bold;
+  margin-bottom: 25px;
+  z-index: 1;
 }
-
+.about-intro {
+  position: relative;
+  color: #ffffff;
+  max-width: 700px;
+  margin: 0 auto 50px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  z-index: 1;
+}
 /*=== CONTATO ===*/
 #contact {
   text-align: center;
   padding: 100px 20px;
-  background: radial-gradient(circle at center, #00111a9c 0%, #000a12ce 100%);
   color: #fff;
 }
-
 #contact h2 {
   font-size: 2rem;
   color: var(--neon-azul);
-  text-shadow: 0 0 10px var(--azul-metalico);
   margin-bottom: 20px;
 }
-
 #contact p {
   font-size: 1.1rem;
   color: #bbb;
   margin-bottom: 40px;
 }
-
 .whatsapp-btn {
   display: inline-flex;
   align-items: center;
@@ -264,32 +310,22 @@ body::before {
   font-size: 1.2rem;
   border-radius: 50px;
   text-decoration: none;
-  box-shadow: 0 0 20px #00e676;
-  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  transition: transform 0.3s, background 0.3s;
 }
-
 .whatsapp-btn i {
   font-size: 1.5rem;
 }
-
 .whatsapp-btn:hover {
   transform: scale(1.1);
-  background: #00ff80;
-  box-shadow: 0 0 30px #00ff80;
+  background: #00c462;
 }
-
-
-
-
 /* ==== FOOTER ==== */
 footer {
   text-align: center;
   padding: 20px;
   background: rgba(0,0,0,0.9);
-  border-top: 1px solid var(--azul-metalico);
   color: #aaa;
 }
-
 /* ==== ANIMAÇÃO DE APARECIMENTO ==== */
 .hidden {
   opacity: 0;
@@ -300,9 +336,7 @@ footer {
   opacity: 1;
   transform: translateY(0);
 }
-
  /*Carrossel*/
-
 #loops {
   text-align: center;
   margin-top: 80px;
@@ -310,58 +344,63 @@ footer {
   overflow: hidden;
   border: none;
   background: none;
-  box-shadow: none;
-}
 
+}
 .carousel {
   position: relative;
   width: 100%;
   overflow: hidden;
 }
-
 .carousel-track {
   display: flex;
   gap: 40px;
   animation: scroll 35s linear infinite;
 }
-
 .loop {
   flex: 0 0 auto;
   padding: 30px 0;
   text-align: center;
   color: #fff;
   min-width: 100px;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s, 0.3s;
 }
-
 .loop:hover {
   transform: translateY(-10px) scale(1.1);
 }
-
 .loop i {
   font-size: 1.5rem;
   color: #00e5ff;
 }
-
 @keyframes scroll {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
-
-
 /* ==== RESPONSIVO ==== */
 @media(max-width: 768px) {
-  .nav-links {
+  .navbar{
     display: none;
-    flex-direction: column;
-    background: rgba(0,0,0,0.95);
-    position: absolute;
-    top: 60px; right: 0;
-    width: 200px;
-    border-left: 1px solid var(--neon-azul);
   }
-  .nav-links.show { display: flex; }
-  .hero .container { flex-direction: column; }
+#loops {
+  margin-top: 5px;
+}
+.carousel-track {
+  gap: 10px;
+  animation: scroll 5s linear infinite;
+}
+.loop {
+  padding: 20px 0;
+  min-width: 70px;
+}
+.loop i {
+  font-size: 1.5rem;
+}
+  .dna-item {
+    width: 90%;
+  }
+  .hero-text h1 {
+  font-size: 1.6rem;
+}
+
 }
 
   </style>
@@ -380,7 +419,6 @@ footer {
       <ul class="nav-links">
         <li><a href="#home">Início</a></li>
         <li><a href="#about">Sobre</a></li>
-        <!--<li><a href="#skills">Habilidades</a></li>-->
         <li><a href="#projects">Projetos</a></li>
         <li><a href="#contact">Contato</a></li>
       </ul>
@@ -398,33 +436,27 @@ footer {
       <div class="loop"><i class="fab fa-js" title="JavaScript"></i></div>
       <div class="loop"><i class="fab fa-python" title="Python"></i></div>
       <div class="loop"><i class="fab fa-php" title="PHP"></i></div>
-
       <!-- Frameworks / Bibliotecas -->
       <div class="loop"><i class="fab fa-react" title="React"></i></div>
       <div class="loop"><i class="fab fa-vuejs" title="Vue.js"></i></div>
       <div class="loop"><i class="fab fa-angular" title="Angular"></i></div>
       <div class="loop"><i class="fab fa-node-js" title="Node.js"></i></div>
       <div class="loop"><i class="fab fa-bootstrap" title="Bootstrap"></i></div>
-
       <!-- Ferramentas e Versionamento -->
       <div class="loop"><i class="fab fa-git-alt" title="Git"></i></div>
       <div class="loop"><i class="fab fa-github" title="GitHub"></i></div>
       <div class="loop"><i class="fab fa-npm" title="NPM"></i></div>
       <div class="loop"><i class="fab fa-docker" title="Docker"></i></div>
-
       <!-- Design e Prototipagem -->
       <div class="loop"><i class="fab fa-figma" title="Figma"></i></div>
       <div class="loop"><i class="fab fa-adobe" title="Adobe XD / Photoshop"></i></div>
-
       <!-- Bancos de Dados -->
       <div class="loop"><i class="fas fa-database" title="SQL / MySQL"></i></div>
       <div class="loop"><i class="fas fa-leaf" title="MongoDB"></i></div>
-
       <!-- Outros -->
       <div class="loop"><i class="fab fa-linux" title="Linux"></i></div>
       <div class="loop"><i class="fab fa-aws" title="AWS"></i></div>
       <div class="loop"><i class="fab fa-wordpress" title="WordPress"></i></div>
-
       <!-- Duplicados para o loop infinito -->
       <div class="loop"><i class="fab fa-html5"></i></div>
       <div class="loop"><i class="fab fa-css3-alt"></i></div>
@@ -439,102 +471,146 @@ footer {
     </div>
   </div>
 </div>
-
-
   <!-- Home -->
   <section id="home" class="hero">
     <div class="container">
       <div class="hero-pic">
-        <img src="img/4.06.15.jpeg" alt="Foto de perfil de Wallace Alves">
+        <img src="img/ChatGP.png" alt="Foto de perfil de Wallace Alves">
       </div>
       <div class="hero-text">
         <h5>Olá, sou</h5>
-        <h1>Wallace Alves</h1>
+        <h1>Wallace Alves de Freitas</h1>
         <h4><span id="typed"></span></h4>
-        <p>Tenho <span id="age"></span> anos e sou apaixonado por tecnologia. Busco transformar ideias em experiências interativas com HTML, CSS e JavaScript.</p>
+        <p><span id="age"></span> anos e apaixonado por tecnologia. Busco transformar ideias em experiências interativas com HTML, CSS e JavaScript.</p>
         <div class="social">
           <a href="curriculo.html" target="_blank"><i class="fas fa-file-alt"></i></a>
           <a href="https://wa.me/64993286584" target="_blank"><i class="fab fa-whatsapp"></i></a>
-          <a href="https://github.com/Wallace9607" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="" target="_blank"><i class="fab fa-github"></i></a>
         </div>
       </div>
     </div>
   </section>
-
   <!-- Sobre -->
-  <section id="about" class="section">
-    <h2>Sobre mim</h2>
-    <p>Sou um entusiasta da tecnologia e desenvolvedor front-end em formação. Gosto de unir design e usabilidade, criando interfaces modernas e funcionais.</p>
-<div class="dna-tech">
-  <div class="dna-item">
-    <h4>🧠 Curioso</h4>
-    <p>Gosto de entender como tudo funciona por trás das telas.</p>
-  </div>
-  <div class="dna-item">
-    <h4>🎯 Focado</h4>
-    <p>Busco sempre aprender algo novo e aplicar com propósito.</p>
-  </div>
-  <div class="dna-item">
-    <h4>💡 Criativo</h4>
-    <p>Adoro transformar ideias em interfaces interativas.</p>
-  </div>
-</div>
-
-
-
-
-  </section>
-
-  <!-- Habilidades
-  <section id="skills" class="section">
-    <h2>Habilidades</h2>
-    <div class="skills-grid">
-      <div class="skill"><i class="fab fa-html5"></i><p>HTML</p></div>
-      <div class="skill"><i class="fab fa-css3-alt"></i><p>CSS</p></div>
-      <div class="skill"><i class="fab fa-js"></i><p>JavaScript</p></div>
-      <div class="skill"><i class="fab fa-react"></i><p>React</p></div>
-      <div class="skill"><i class="fab fa-git-alt"></i><p>Git</p></div>
-    </div>
-  </section> -->
-
+<section id="about" class="section about-section">
+  <h2>Sobre Mim</h2>
+  <p class="about-intro">
+    Sou Wallace, um entusiasta da tecnologia e do desenvolvimento de software, apaixonado por transformar ideias em soluções práticas e inovadoras. 
+    Tenho me dedicado ao aprimoramento constante das minhas habilidades em desenvolvimento.
+  </p>
+  <p class="about-intro">
+    Ao longo da minha trajetória, venho desenvolvendo projetos pessoais e acadêmicos que me proporcionaram experiência em desenvolvimento web, mobile e integração de sistemas. 
+    Busco unir criatividade e lógica para construir aplicações eficientes, com código limpo, escalável e voltado à experiência do usuário.
+  </p>
+  <p class="about-intro">
+    Sou movido por desafios e pelo desejo de aprender continuamente. Acredito que a tecnologia tem o poder de mudar realidades, 
+    e meu objetivo é contribuir com projetos que gerem impacto positivo, combinando inovação, desempenho e propósito.
+  </p>
+</section>
   <!-- Projetos -->
-  <section id="projects" class="section">
-    <h2>Projetos</h2>
-    <div class="projects-grid">
-      <div class="project-card">
-        <img src="img/projeto1.jpg" alt="Projeto 1">
-        <h3>Projeto 1</h3>
-        <p>Descrição breve do projeto.</p>
-        <a href="#" target="_blank">Ver no GitHub</a>
+<section id="projects" class="section projects-section hidden">
+  <h2>Projetos</h2>
+  <p class="projects-intro">
+    Aqui estão alguns dos meus projetos desenvolvidos, cada um explorando ideias e tecnologias diferentes.
+  </p>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-img">
+        <img src="img/4.06.15.jpeg" alt="Projeto 1">
       </div>
-      <div class="project-card">
-        <img src="img/projeto2.jpg" alt="Projeto 2">
-        <h3>Projeto 2</h3>
-        <p>Descrição breve do projeto.</p>
-        <a href="#" target="_blank">Ver no GitHub</a>
+      <div class="project-info">
+        <h3>Projeto 1</h3>
+        <p>Aplicação web moderna com foco em responsividade e design interativo.</p>
+        <a href="#" target="_blank" class="btn-project">🔗 Ver no GitHub</a>
       </div>
     </div>
-  </section>
-
+    <div class="project-card">
+      <div class="project-img">
+        <img src="img/4.06.15.jpeg" alt="Projeto 2">
+      </div>
+      <div class="project-info">
+        <h3>Projeto 2</h3>
+        <p>Dashboard interativo com integração de dados e visualização em tempo real.</p>
+        <a href="#" target="_blank" class="btn-project">🔗 Ver no GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
   <!-- Contato -->
 <section id="contact" class="section">
   <h2>Entre em Contato</h2>
   <p>Quer conversar sobre um projeto, ideia ou colaboração? Fale comigo no WhatsApp!</p>
-
   <a href="https://wa.me/5564993286584?text=Olá!%20Vim%20do%20seu%20portfólio%20e%20gostaria%20de%20conversar." 
      target="_blank" 
      class="whatsapp-btn">
     <i class="fab fa-whatsapp"></i> Falar no WhatsApp
   </a>
 </section>
-
   <!-- Rodapé -->
   <footer>
     <p>© 2025 Wallace Alves - Todos os direitos reservados</p>
   </footer>
-
   <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
-  <script src="script.js"></script>
+  <script>
+    // === Exibir idade automaticamente ===
+  function calcularIdade(dataNascimento) {
+    const hoje = new Date();
+    const nasc = new Date(dataNascimento);
+    let idade = hoje.getFullYear() - nasc.getFullYear();
+    const mes = hoje.getMonth() - nasc.getMonth();
+    if (mes < 0 || (mes === 0 && hoje.getDate() < nasc.getDate())) idade--;
+    return idade;
+  }
+  document.getElementById("age").textContent = calcularIdade("1996-07-01");
+  // === Efeito digitação Typed.js ===
+  new Typed("#typed", {
+    strings: [
+      "Desenvolvedor Front-End",
+      "Criador de Interfaces"
+    ],
+    typeSpeed: 70,
+    backSpeed: 40,
+    loop: true,
+    backDelay: 1500,
+    startDelay: 500
+  });
+  // === Menu responsivo ===
+  const toggle = document.getElementById("menu-toggle");
+  const navLinks = document.querySelector(".nav-links");
+  toggle.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
+    toggle.querySelector("i").classList.toggle("fa-bars");
+    toggle.querySelector("i").classList.toggle("fa-xmark");
+  });
+  // === Rolagem suave ===
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener("click", function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute("href"));
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+        navLinks.classList.remove("show");
+        toggle.querySelector("i").classList.add("fa-bars");
+        toggle.querySelector("i").classList.remove("fa-xmark");
+      }
+    });
+  });
+  // === Efeito de fade ao rolar ===
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, { threshold: 0.2 });
+  document.querySelectorAll(".section, .project-card").forEach(el => {
+    el.classList.add("hidden");
+    observer.observe(el);
+  });
+  window.addEventListener("load", () => {
+  document.body.style.opacity = 1;
+  document.body.style.transition = "opacity 1s ease";
+});
+  </script>
 </body>
 </html>
