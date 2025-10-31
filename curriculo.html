@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo - Wallace Alves de Freitas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+ /* === ESTILOS PRINCIPAIS === */
+:root {
+  /* Tons principais extraídos da imagem */
+  --azul-neve: #E8F3FA;      /* azul bem claro, quase branco */
+  --azul-suave: #B8D9EF;     /* azul celeste suave */
+  --azul-medio: #6FA7CC;     /* azul intermediário */
+  --azul-profundo: #2B5C80;  /* azul oceânico médio */
+  --azul-escuro: #0E2C44;    /* azul profundo, base do degradê */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url(img/fundoazul.jfif);
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #333;
+}
+
+.resume {
+  width: 200mm;
+  height: 290mm;
+  margin: 0 auto;
+  background: #fff;
+  padding: 3mm;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.267);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.header {
+  padding: 70px 30px;
+  background: linear-gradient(#E8F3FA, #B8D9EF);
+}
+
+.header h1 {
+  font-size: 38px;
+  margin: 0;
+}
+
+.columns {
+  display: flex;
+  flex: 1;
+  gap: 0;
+}
+
+.left-column,
+.right-column {
+  padding: 25px;
+}
+
+.left-column {
+  width: 35%;
+  background: linear-gradient(#B8D9EF, #6FA7CC);
+  color: #000000;
+}
+
+.left-column p {
+  margin-top: 10px;
+}
+
+.right-column {
+  width: 65%;
+  border-right: solid #B8D9EF;
+  border-bottom: solid #6FA7CC;
+}
+
+#adicionais {
+  margin-top: 30px;
+}
+
+h2 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #0E2C44;
+  padding-bottom: 5px;
+}
+
+p,
+ul {
+  font-size: 12px;
+  line-height: 1.8;
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+#icons {
+  margin-top: 15px;
+}
+
+.contact-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border: solid #0E2C44;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.contact-icons a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.contact-icons a:hover {
+  color: #744242;
+}
+
+.contact-icons i {
+  color: #a82200;
+  font-size: 18px;
+  margin-right: 10px;
+  transition: 0.5s;
+}
+
+i:hover {
+  color: #b87878;
+  transform: rotate(360deg);
+}
+
+#download-btn {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background: #4fc96a;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#download-btn:hover {
+  background: #00b38c;
+}
+
+/* === IMPRESSÃO === */
+@media print {
+  .resume {
+    box-shadow: none;
+    margin: 0;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+    </style>
+</head>
+<body>
+    <button id="download-btn">Baixar em PDF</button>
+
+    <div class="resume">
+        <div class="header">
+            <h1>Wallace Alves de Freitas</h1>
+        </div>
+        <div class="columns">
+            <!-- Coluna Esquerda -->
+            <div class="left-column">
+                <div class="section">
+                    <p>
+                        Tenho <span id="age"></span> anos, sou natural de Santa Helena de Goiás e moro em Rio Verde - GO desde 2017. 
+                        <br><br>
+                        Sou dinâmico, adaptável e tenho facilidade em aprender. Atualmente, dedico-me também ao desenvolvimento web, criando sistemas práticos e intuitivos com HTML, CSS e JavaScript. 
+                        <br><br>
+                        Tenho experiência em atendimento ao público, comunicação, design visual e criação de interfaces funcionais, sempre buscando oferecer qualidade e inovação.
+                    </p>
+                </div>
+                <div class="section" id="icons">
+                    <div class="contact-icons">
+                        <a href="tel:+5564993286584">
+                            <i class="fa-brands fa-whatsapp"></i> (64) 99328-6584
+                        </a>
+                        <a href="https://www.instagram.com/wallacedw_" target="_blank">
+                            <i class="fab fa-instagram"></i> @wallacedw_
+                        </a>
+                        <a href="mailto:galadriel9607@gmail.com">
+                            <i class="fas fa-envelope"></i> galadriel9607@gmail.com
+                        </a>
+                        <a href="https://wallace9607.github.io/portif/" target="_blank">
+                            <i class="fas fa-globe"></i> Portfólio Online
+                        </a>
+                    </div>
+                </div>
+                <div class="section">
+                    <h2>Educação</h2>
+                    <p>Ensino Médio - Completo</p>
+                    <p style="color: #5c5c5ccc;">Engenharia de software - Cursando...</p>
+                </div>
+                <div class="section" id="adicionais">
+                    <h2>Informações adicionais</h2>
+                    <ul>
+                        <li>CNH - Categoria AB</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Coluna Direita -->
+            <div class="right-column">
+                <div class="section">
+                    <h2>Cursos e Treinamentos</h2>
+                    <ul>
+                        <li>Técnico em Administração e Negócios</li>
+                        <li>Informática e Pacote Office</li>
+                        <li>Desenvolvimento Web (HTML, CSS, JavaScript)</li>
+                        <li>Bibliotecas JS – jsPDF, html2canvas, LocalStorage</li>
+                        <li>Design de Interfaces Responsivas</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>Habilidades</h2>
+                    <ul>
+                        <li>Proatividade e foco em resultados</li>
+                        <li>Trabalho em equipe e boa comunicação</li>
+                        <li>Criação de sistemas funcionais e intuitivos</li>
+                        <li>Resolução de problemas e atenção aos detalhes</li>
+                        <li>Domínio de HTML, CSS e JavaScript</li>
+                        <li>Desenvolvimento de interfaces responsivas</li>
+                        <li>Controle de dados com LocalStorage</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>Experiências de Trabalho</h2>
+                    <ul>
+                        <li><strong>Recepcionista</strong> – Receita Federal / CK Construtora e Serviços LTDA (04/2025 - atual)</li>
+                        <li><strong>Recepcionista</strong> – Receita Federal / Ágil LTDA (12/2024 - 04/2025)</li>
+                        <li><strong>Recepcionista</strong> – Receita Federal / A M ABS LTDA (04/2024 - 12/2024)</li>
+                        <li><strong>Comando de Setor</strong> – JATAI AGROSERV LTDA (02/2023 - 01/2024)</li>
+                        <li><strong>Costureiro</strong> – COM ARTE S2 CONFECÇÕES LTDA (01/2022 - 04/2022)</li>
+                        <li><strong>Costureiro</strong> – VORAY (06/2021 - 10/2021)</li>
+                        <li><strong>Auxiliar nos Serviços de Alimentação</strong> – SESI (09/2016 - 03/2017)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script PDF e idade -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+        document.getElementById('download-btn').addEventListener('click', function () {
+            const element = document.querySelector('.resume');
+            const options = {
+                margin: 0,
+                filename: 'Curriculo_Wallace_Alves.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            html2pdf().set(options).from(element).save();
+        });
+
+        function calcularIdade(dataNascimento) {
+            const hoje = new Date();
+            const nascimento = new Date(dataNascimento);
+            let idade = hoje.getFullYear() - nascimento.getFullYear();
+            const mes = hoje.getMonth() - nascimento.getMonth();
+            if (mes < 0 || (mes === 0 && hoje.getDate() < nascimento.getDate())) idade--;
+            return idade;
+        }
+        document.getElementById('age').textContent = calcularIdade('1996-07-01');
+    </script>
+</body>
+</html>
