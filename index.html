@@ -401,8 +401,116 @@ footer {
   font-size: 1.6rem;
 }
 
+
+  .projects-section {
+    margin: 40px 10px;
+    padding: 30px 15px;
+  }
+
+  .projects-section h2 {
+    font-size: 1.7rem;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  .projects-intro {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 35px;
+    padding: 0 10px;
+    text-align: center;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr; /* uma coluna só */
+    gap: 20px;
+  }
+
+  .project-card {
+    max-width: 80%;
+    border-radius: 10px;
+  }
+
+  .project-img {
+    height: 200px;
+  }
+
+  .project-info {
+    padding: 15px;
+  }
+
+  .project-info h3 {
+    font-size: 1.1rem;
+  }
+
+  .project-info p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .btn-project {
+    padding: 8px 18px;
+    font-size: 0.9rem;
+  }
+
+  /* Suaviza a animação no mobile */
+  .projects-section.hidden {
+    transform: translateY(20px) scale(0.98);
+  }
 }
 
+/* ==== HERO (RESPONSIVO - MOBILE) ==== */
+@media (max-width: 600px) {
+  .hero {
+    flex-direction: column;
+    min-height: auto;
+    padding: 40px 15px;
+  }
+
+  .hero .container {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .hero-pic {
+    width: 200px;
+    height: 220px;
+    border-width: 3px;
+  }
+
+  .hero-text h1 {
+    font-size: 1.7rem;
+    line-height: 1.2;
+  }
+
+  .hero-text h4 {
+    font-size: 1rem;
+    margin: 8px 0;
+  }
+
+  .hero-text p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    max-width: 90%;
+    margin: 10px auto;
+  }
+
+  .social a {
+    font-size: 1.3rem;
+    margin: 0 8px;
+  }
+
+  /* ==== SEÇÕES (RESPONSIVO) ==== */
+  .section {
+    padding: 50px 15px;
+    margin: 15px 0;
+  }
+
+  .section h2 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+  }
+}
   </style>
 </head>
 <body>
@@ -515,22 +623,22 @@ footer {
   <div class="projects-grid">
     <div class="project-card">
       <div class="project-img">
-        <img src="img/4.06.15.jpeg" alt="Projeto 1">
+        <img src="img/imagem.png" alt="Projeto 1">
       </div>
       <div class="project-info">
-        <h3>Projeto 1</h3>
-        <p>Aplicação web moderna com foco em responsividade e design interativo.</p>
-        <a href="#" target="_blank" class="btn-project">🔗 Ver no GitHub</a>
+        <h3>English Kids</h3>
+        <p>Embarque em uma jornada mágica para aprender inglês de forma divertida e interativa! 🚀🎈</p>
+        <a href="https://wallace9607.github.io/ingl-s_kids/" target="_blank" class="btn-project">🔗 Ver</a>
       </div>
     </div>
     <div class="project-card">
       <div class="project-img">
-        <img src="img/4.06.15.jpeg" alt="Projeto 2">
+        <img src="img/rifa.jpeg" alt="Projeto 2">
       </div>
       <div class="project-info">
-        <h3>Projeto 2</h3>
-        <p>Dashboard interativo com integração de dados e visualização em tempo real.</p>
-        <a href="#" target="_blank" class="btn-project">🔗 Ver no GitHub</a>
+        <h3>Rifa Online</h3>
+        <p>Rifa Online: uma experiência interativa que transforma sorteios em algo visual e envolvente.</p>
+        <a href="https://wallace9607.github.io/rifa/" target="_blank" class="btn-project">🔗 Ver</a>
       </div>
     </div>
   </div>
@@ -614,3 +722,4 @@ footer {
   </script>
 </body>
 </html>
+
