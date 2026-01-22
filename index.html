@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Portfólio - Wallace Alves</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
   <style>
 @import url('https://fonts.googleapis.com/css2?family=Merienda:wght@400;700&family=Poppins:wght@400;600&display=swap');
 
@@ -18,6 +22,7 @@
   --azul-metalico: #0077B6;    /* detalhes metálicos */
   --azul-profundo: #003459;    /* sombra e contraste */
   --fundo-escuro: #0A0F1F;     /* fundo geral */
+  --fundo-transparent: #00000000;
 }
 /* Base */
 body {
@@ -322,10 +327,22 @@ body::before {
 /* ==== FOOTER ==== */
 footer {
   text-align: center;
-  padding: 20px;
-  background: rgba(0,0,0,0.9);
+  padding: 25px 15px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.85), rgba(10,15,31,0.95));
   color: #aaa;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(0,200,255,0.3);
 }
+
+footer p {
+  line-height: 1.6;
+}
+
+footer span {
+  color: var(--neon-azul);
+  font-weight: 600;
+}
+
 /* ==== ANIMAÇÃO DE APARECIMENTO ==== */
 .hidden {
   opacity: 0;
@@ -457,6 +474,17 @@ footer {
   .projects-section.hidden {
     transform: translateY(20px) scale(0.98);
   }
+
+    .borda-giratoria {
+    border-width: 1.5px;
+    animation: girarBorda 6s linear infinite;
+  }
+
+  .mascote-flutuante img {
+    width: 72%;
+    height: 72%;
+    filter: drop-shadow(0 0 6px rgba(0,200,255,0.6));
+  }
 }
 
 /* ==== HERO (RESPONSIVO - MOBILE) ==== */
@@ -511,6 +539,61 @@ footer {
     margin-bottom: 15px;
   }
 }
+
+/* ==== MASCOTE FLUTUANTE ==== */
+.mascote-flutuante {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* FUNDO ESCURO AJUSTADO */
+.bg-mascote {
+  position: absolute;
+  width: 78%;
+  height: 78%;
+  background: radial-gradient(
+    circle,
+    rgb(10, 15, 31),
+    rgb(10, 15, 31)
+  );
+  border-radius: 50%;
+  z-index: 0;
+}
+
+
+/* Borda sólida que gira */
+.borda-giratoria {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+    border-width: 2px;
+  border-style: solid;
+  border-color: var(--neon-azul) var(--fundo-transparent);
+  border-radius: 50%;
+  animation: girarBorda 4s linear infinite;
+
+}
+
+/* Imagem NÃO gira */
+.mascote-flutuante img {
+  width: 75%;
+  height: 75%;
+  object-fit: contain;
+  z-index: 1;
+}
+
+/* Animação */
+@keyframes girarBorda {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+
   </style>
 </head>
 <body>
@@ -520,7 +603,7 @@ footer {
 
   <!-- Navbar -->
   <header class="navbar">
-    <div class="logo">
+    <div class="logo  animate__animated animate__bounceInRight animate__slower	3s">
       <img src="img/4.06.15.jpeg" alt="">
     </div>
     <nav>
@@ -591,9 +674,9 @@ footer {
         <h4><span id="typed"></span></h4>
         <p><span id="age"></span> anos e apaixonado por tecnologia. Busco transformar ideias em experiências interativas com HTML, CSS e JavaScript.</p>
         <div class="social">
-          <a href="curriculo.html" target="_blank"><i class="fas fa-file-alt"></i></a>
-          <a href="https://wa.me/64993286584" target="_blank"><i class="fab fa-whatsapp"></i></a>
-          <a href="" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="curriculo.html" target="_blank"><i class="fas fa-file-alt  animate__animated animate__bounceInRight animate__delay-2s animate__slower	3s"></i></a>
+          <a href="https://wa.me/64993286584" target="_blank"><i class="fab fa-whatsapp animate__animated animate__bounceInRight animate__delay-3s animate__slower	3s"></i></a>
+          <a href="" target="_blank"><i class="fab fa-github animate__animated animate__bounceInRight animate__delay-4s animate__slower	3s"></i></a>
         </div>
       </div>
     </div>
@@ -636,7 +719,7 @@ footer {
         <img src="img/rifa.jpeg" alt="Projeto 2">
       </div>
       <div class="project-info">
-        <h3>Rifa Online</h3>
+        <h3>Rifa online</h3>
         <p>Rifa Online: uma experiência interativa que transforma sorteios em algo visual e envolvente.</p>
         <a href="https://wallace9607.github.io/rifa/" target="_blank" class="btn-project">🔗 Ver</a>
       </div>
@@ -665,9 +748,21 @@ footer {
   </a>
 </section>
   <!-- Rodapé -->
-  <footer>
-    <p>© 2025 Wallace Alves - Todos os direitos reservados</p>
-  </footer>
+<footer>
+  <p>
+    © <span id="currentYear"></span> Wallace Alves  
+    <br>
+    Todos os direitos reservados
+  </p>
+</footer>
+
+<!-- Mascote flutuante -->
+<div class="mascote-flutuante">
+  <div class="borda-giratoria"></div>
+  <div class="bg-mascote"></div>
+  <img src="img/fenix.png" alt="Fênix">
+</div>
+
   <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
   <script>
@@ -730,8 +825,10 @@ footer {
   document.body.style.opacity = 1;
   document.body.style.transition = "opacity 1s ease";
 });
+
+// === Ano automático no footer ===
+document.getElementById("currentYear").textContent = new Date().getFullYear();
+
   </script>
 </body>
 </html>
-
-
