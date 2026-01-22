@@ -14,6 +14,7 @@
   --azul-medio: #6FA7CC;     /* azul intermediário */
   --azul-profundo: #2B5C80;  /* azul oceânico médio */
   --azul-escuro: #0E2C44;    /* azul profundo, base do degradê */
+    --fundo-transparent: #00000000;
 }
 
 body {
@@ -167,7 +168,58 @@ i:hover {
     padding: 0;
   }
 }
+/* ==== MASCOTE FLUTUANTE ==== */
+.mascote-flutuante {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* FUNDO ESCURO AJUSTADO */
+.bg-mascote {
+  position: absolute;
+  width: 78%;
+  height: 78%;
+  background: radial-gradient(
+    circle,
+    rgb(10, 15, 31),
+    rgb(10, 15, 31)
+  );
+  border-radius: 50%;
+  z-index: 0;
+}
 
+
+/* Borda sólida que gira */
+.borda-giratoria {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+    border-width: 2px;
+  border-style: solid;
+  border-color: var(--azul-escuro) var(--fundo-transparent);
+  border-radius: 50%;
+  animation: girarBorda 4s linear infinite;
+
+}
+
+/* Imagem NÃO gira */
+.mascote-flutuante img {
+  width: 75%;
+  height: 75%;
+  object-fit: contain;
+  z-index: 1;
+}
+
+/* Animação */
+@keyframes girarBorda {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
     </style>
 </head>
 <body>
@@ -260,6 +312,13 @@ i:hover {
         </div>
     </div>
 
+<!-- Mascote flutuante -->
+<div class="mascote-flutuante">
+  <div class="borda-giratoria"></div>
+  <div class="bg-mascote"></div>
+  <img src="img/fenix.png" alt="Fênix">
+</div>
+
     <!-- Script PDF e idade -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script>
@@ -287,3 +346,4 @@ i:hover {
     </script>
 </body>
 </html>
+
